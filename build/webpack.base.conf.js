@@ -3,15 +3,24 @@ var fs = require('fs')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
+const { AutoWebPlugin } = require('web-webpack-plugin')
+
+const autoWebPlugin = new AutoWebPlugin ('pages', {
+  template: './template.html',
+  postEntrys: [],
+  commonsChunk: {
+    name: 'common'
+  }
+})
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
 module.exports = {
-  entry: {
-    app: './src/main.js'
-  },
+  entry: autoWebPlugin.entry({
+    //额外chunk入口
+  }),
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
@@ -19,6 +28,9 @@ module.exports = {
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
   },
+  plugins: [
+    autoWebPlugin
+  ],
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
@@ -33,7 +45,7 @@ module.exports = {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
         enforce: 'pre',
-        include: [resolve('src'), resolve('test')],
+        include: [resolve('src'), resolve('test'), resolve('pages')],
         options: {
           formatter: require('eslint-friendly-formatter')
         }
@@ -46,7 +58,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')]
+        include: [resolve('src'), resolve('test'),  resolve('pages')]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
