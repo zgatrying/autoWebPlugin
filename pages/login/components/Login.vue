@@ -42,7 +42,6 @@ export default {
 
 <style scoped>
 .login {
-  width: 400px;
-  margin: 40px auto;
+  padding: 40px;
 }
 </style>
