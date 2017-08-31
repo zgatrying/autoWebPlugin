@@ -1,13 +1,17 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <UIMenu></UIMenu>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+  import UIMenu from './components/Menu'
+  export default {
+    name: 'app',
+    components: {
+      UIMenu
+    }
+  }
 </script>
 
 <style>
