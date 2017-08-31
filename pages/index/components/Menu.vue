@@ -1,6 +1,6 @@
 <template>
   <div class="Menu">
-    这里是主页菜单
+    这里是主页菜单, hello world
   </div>
 </template>
 

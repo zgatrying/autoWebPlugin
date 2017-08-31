@@ -34,9 +34,7 @@ export default {
   },
   methods: {
     handleSubmit () {
-      this.$router.push({
-        path: '/menu'
-      })
+      window.location.href = 'index.html'
     }
   }
 }
