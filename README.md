@@ -1,6 +1,6 @@
-# 后台管理系统前端文档
+# AutoWebPlugin插件demo
 
-> A Vue.js project
+> 在原demo的基础上添加了热替换功能
 
 ## Build Setup
 
