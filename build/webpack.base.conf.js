@@ -9,7 +9,8 @@ const autoWebPlugin = new AutoWebPlugin ('pages', {
   template: './template.html',
   postEntrys: [],
   commonsChunk: {
-    name: 'common'
+    name: 'common',
+    minChunks: 2
   }
 })
 
