@@ -1,6 +1,6 @@
 <template>
 <div class="login">
-    <img class="logo" src="./assets/images/logo.jpg" alt="杭州佰凌智能">
+    <img class="logo" src="static/img/logo.jpg" alt="杭州佰凌智能">
 		<el-row>
 			<el-col>
 				<el-form :model="form" ref="form">
@@ -31,16 +31,16 @@ import md5 from 'md5';
 // import {superAccountActionLogin} from './util/api';
 export default {
 	mounted() {
-		let user = localStorage.getItem('account');
+		let user = localStorage.getItem('account')
 		if (user !== null) {
-				user = JSON.parse(user);
-				this.form.account = user.account;
+				user = JSON.parse(user)
+				this.form.account = user.account
 		}
 		document.addEventListener('keydown', e => {
 			if(e.key === 'Enter' || e.keyCode === 13) {
-				this.handleSubmit();
+				this.handleSubmit()
 			}
-		});
+		})
 	},
 	data() {
 		return {
@@ -53,20 +53,20 @@ export default {
 		}
 	},
 	methods: {
-		handleSubmit() {
+		handleSubmit () {
 			this.$refs.form.validate(valid => {
 				if(valid) {
-					this.handleLogin();
+					this.handleLogin()
 				} else {
-					return false;
+					return false
 				}
 			})
 		},
-		handleLogin() {
+		handleLogin () {
 			let data = {
 				account: this.form.account,
 				password: md5(this.form.password),
-			};
+			}
 			// superAccountActionLogin(data)
 			// .then(res => {
 			// 	if(res.errorcode === 0) {
@@ -89,15 +89,15 @@ export default {
 }
 </script>
 
-<style lang="sass">
-	.login {
-		width: 600px;
+<style lang="scss">
+.login {
+	width: 600px;
+	margin: 0 auto;
+	padding-top: 50px;
+	img.logo{
+		display: block;
 		margin: 0 auto;
-		padding-top: 50px;
-		img.logo{
-			display: block;
-			margin: 0 auto;
-			margin-bottom: 12px;
-		}
+		margin-bottom: 12px;
 	}
+}
 </style>
