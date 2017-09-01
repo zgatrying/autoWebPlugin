@@ -8,6 +8,10 @@
 # install dependencies
 npm install
 
+# or
+
+npm install --registry=https://registry.npm.taobao.org
+
 # serve with hot reload at localhost:8080
 npm run dev
 
@@ -26,5 +30,13 @@ npm run e2e
 # run all tests
 npm test
 ```
+
+执行`npm start`后，访问
+
+`localhost:8080/login.html`
+
+或
+
+`localhost:8080/index.html`
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
